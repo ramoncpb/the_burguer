@@ -8,31 +8,17 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css" />
     </head>
-    <body>
+    <body class='card'>
 
         <?php 
-            include_once 'cabecalho.php'; 
+            include_once '../cabecalho.php'; 
         ?>
 
         <div class='card-body'>
-            <form action='dados.php' method='POST'>
+            <form action='../dados.php' method='POST'>
                 <div class="form-group">
                     <label>Nome :</label>
                     <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" placeholder="Nome" required />
-                </div>
-                <div class="form-group">
-                    <label class='form-label'>CPF : </label>
-                    <input type="text" class="form-control" name="cpfCliente" id="cpfCliente" placeholder="CPF" required />
-                </div>
-
-                <div class="form-group">
-                    <label class='form-label'>Data de nascimento : </label>
-                    <input type="date" class="form-control" name="dtNasc" id="dtNasc" placeholder="Data de nascimento" required />
-                </div>
-
-                <div class="form-group">
-                    <label class='form-label'>Telefone : </label>
-                    <input type="text" class="form-control" name="telCliente" id="telCliente" placeholder="(__)____-____" required />
                 </div>
 
                 <div class="form-group">
@@ -45,13 +31,28 @@
                     <input type="text" class="form-control" name="cepCliente" id="cepCliente" placeholder="_____-___" required />
                 </div>
 
-                <div class="input-group">
+                <div class="form-group">
+                    <label class='form-label'>Telefone : </label>
+                    <input type="text" class="form-control" name="telCliente" id="telCliente" placeholder="(__)____-____" required />
+                </div>
+
+                <div class="form-group">
+                    <label class='form-label'>CPF : </label>
+                    <input type="text" class="form-control" name="cpfCliente" id="cpfCliente" placeholder="CPF" required />
+                </div>
+
+                <div class="form-group">
                     <label class='form-label'>Informe o seu metodo de pagamento </label>
                     <select class="custom-select" name="tpPagamento" id="tpPagamento" title="Selecione" required >
                         <option value="dinheiro">Dinheiro</option>
                         <option value="pix">Pix</option>
                         <option value="cartao">Cartão</option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label class='form-label'>Data de nascimento : </label>
+                    <input type="date" class="form-control" name="dtNasc" id="dtNasc" placeholder="Data de nascimento" required />
                 </div>
 
                 <div class="botoes">
@@ -71,7 +72,7 @@
         </div>
 
         <?php
-            include_once 'rodape.php';
+            include_once '../rodape.php';
          ?>
     </body>
 </html>
