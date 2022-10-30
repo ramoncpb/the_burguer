@@ -11,16 +11,16 @@ class Cliente{
     public $cepCliente;
     public $tpPagamento;
 
-    function __construct($codCliente, $nomeCliente, $cpfCliente, $dtNasc, $telCliente, $endCliente, $cepCliente, $tpPagamento){
-        $this->codigo = $codCliente;
-        $this->nome = $nomeCliente;
-        $this->cpf = $cpfCliente;
-        $this->nascimento = $dtNasc;
-        $this->telefone = $telCliente;
-        $this->endereco = $endCliente;
-        $this->cep = $cepCliente;
-        $this->pagamento = $tpPagamento;
-    }
+    // function __construct($codCliente, $nomeCliente, $cpfCliente, $dtNasc, $telCliente, $endCliente, $cepCliente, $tpPagamento){
+    //     $this->codigo = $codCliente;
+    //     $this->nome = $nomeCliente;
+    //     $this->cpf = $cpfCliente;
+    //     $this->nascimento = $dtNasc;
+    //     $this->telefone = $telCliente;
+    //     $this->endereco = $endCliente;
+    //     $this->cep = $cepCliente;
+    //     $this->pagamento = $tpPagamento;
+    // }
 
     function getCodigo() {
         return $this->codigo;
@@ -88,6 +88,33 @@ class Cliente{
 
     function __toString() {
         return "($this->codigo),($this->nome),($this->cpf),($this->nascimento),($this->telefone),($this->endereco),($this->cep),($this->pagamento)";
+    }
+
+    function inserir($id_form,$nomeCliente,$endCliente,$cepCliente,$telCliente,$cpfCliente,$tpPagamento,$dtNasc){          
+
+        $sql = "INSERT INTO 
+                    tb_clientes 
+                    ( 
+                    :cod_cliente 	
+                    :nome_cliente 	
+                    :end_cliente 	
+                    :cep_cliente 	
+                    :tel_cliente 	
+                    :cpf_cliente 	
+                    :tipo_pagamento 	
+                    :dt_nasc 
+                    )  
+                VALUES 
+                ('$id_form',
+                '$nomeCliente',
+                '$endCliente',
+                '$cepCliente',
+                '$telCliente',
+                '$cpfCliente',
+                '$tpPagamento',
+                '$dtNasc')";    
+
+        db_query($sql);
     }
 }
 ?>

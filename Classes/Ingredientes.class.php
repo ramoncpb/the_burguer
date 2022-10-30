@@ -40,4 +40,17 @@ class Ingrediente{
         return "($this->codigo),($this->ingrediente),($this->preco)";
     }
 
+    function inserir($nome,$email){          
+
+        $sql = "INSERT INTO 
+                    nome_tabela 
+                    (campos,campos) 
+                VALUES 
+                    ('$valores',
+                    '$valores',
+                    )";    
+
+        db_query($sql);
+    }
+
 }
