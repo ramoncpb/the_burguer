@@ -2,12 +2,17 @@
     // abre conexão com o banco
     require_once 'conexao.php';
     
-    // recebe os dados do formulário
-    foreach ($_POST as $key => $value) {
-        $$key = $value;
-    }
+    // recebe os dados do formulário]
 
-    //   var_dump($_POST);
+    $nomeCliente = $_POST['nomeCliente'];
+    $endCliente = $_POST['endCliente'];
+    $cepCliente = $_POST['cepCliente'];
+    $telCliente = $_POST['telCliente'];
+    $cpfCliente = $_POST['cpfCliente'];
+    $tpPagamento = $_POST['tpPagamento'];
+    $dtNasc = $_POST['dtNasc'];
+
+    //  var_dump($_POST);
     //  exit();
 
     // verifica se já existe um registro na tabela para o código informado (chave duplicada)		
@@ -22,22 +27,15 @@
 
     if(isset($INSERIR_CLIENTE) && !empty($INSERIR_CLIENTE)){
         try{
-            
-            $stmt = $conn->prepare("INSERT INTO tb_clientes VALUES(:nome_cliente,:end_cliente,:cep_cliente,:tel_cliente,:cpf_cliente,:tipo_pagamento,:dt_nasc)");
-                $stmt->bindValue(':nome_cliente', $nomeCliente);
-                $stmt->bindValue(':end_cliente', $endCliente);
-                $stmt->bindValue(':cep_cliente', $cepCliente);
-                $stmt->bindValue(':tel_cliente', $telCliente);
-                $stmt->bindValue(':cpf_cliente', $cpfCliente);
-                $stmt->bindValue(':tipo_pagamento', $tpPagamento);
-                $stmt->bindValue(':dt_nasc', $dtNasc);
-                $stmt->execute();
+            $sql = "INSERT INTO tb_clientes (nome_cliente,end_cliente,cep_cliente,tel_cliente,cpf_cliente,tipo_pagamento,dt_nasc)VALUES ('$nomeCliente','$endCliente','$cepCliente','$telCliente','$cpfCliente','$tpPagamento','$dtNasc')";
 
-                echo 'executou a query';
+            $stmt = $conn->prepare($sql);
+                
+            $stmt->execute();
             
         }catch (PDOException $e) {
             // caso ocorra uma exceção, exibe na tela
-            echo 'nao executou a query';
+        
 
             $destino = "function () {window.location='cadastrarCliente.php';}";
             echo "<script>'error',$destino)</script>";
@@ -56,4 +54,4 @@
     }
 
 ?>
- <script>window.location.href='.index.php'</script>
+ <script>window.location.href='index.php'</script>
