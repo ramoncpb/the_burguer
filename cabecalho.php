@@ -3,6 +3,6 @@
     <div class="lista">
         <a class="li" href="index.php">Home</a>
         <a class="li" href="#">Ingredientes</a>
-        <a class="li" href="./Formularios/cadastrarCliente">Cadastrar Clientes</a>
+        <a class="li" href="cadastrarCliente">Cadastrar Clientes</a>
     </div>
 </div>

@@ -102,6 +102,11 @@
 
         <div class='card-body'>
             <form action='cadastrarCliente.php' method='POST'>
+            <div class="form-group">
+                    <label>Identificador :</label>
+                    <input type="text" class="form-control" name="id_cliente" id="id_cliente" placeholder="Id" required />
+                </div>
+
                 <div class="form-group">
                     <label>Nome :</label>
                     <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" placeholder="Nome" required />
