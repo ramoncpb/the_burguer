@@ -11,92 +11,14 @@
     <body>
         
         <div class='card'>
-            <?php 
+            <?php
                 include_once './cabecalho.php'; 
-    
-                if($_POST['form_operacao'] == 'inclusao_cliente'){
-                    try{
-                        var_dump('entrou no IF');
-                        // abre conexão com o banco
-                        require_once 'conexao.php';
-                        
-                        // recebe os dados do formulário
-                
-                        $nomeCliente = $_POST['nomeCliente'];
-                        $endCliente = $_POST['endCliente'];
-                        $cepCliente = $_POST['cepCliente'];
-                        $telCliente = $_POST['telCliente'];
-                        $cpfCliente = $_POST['cpfCliente'];
-                        $tpPagamento = $_POST['tpPagamento'];
-                        $dtNasc = $_POST['dtNasc'];
-
-                        var_dump('pegou os names');
-            
-                        var_dump($_POST);
-                        //  exit();
-            
-                        // verifica se já existe um registro na tabela para o código informado (chave duplicada)
-
-                        $result = $conn->query("SELECT * FROM tb_clientes where cpf_cliente = '$cpfCliente'");
-                        //echo ("SELECT * FROM tb_clientes where cpf_cliente = '$cpfCliente'");
-                        $count = $result->rowCount();
-                        if ($count > 0) {
-                            $destino = "function () {window.location='cadastrarCliente.php';}";
-                            echo "<script>sendToastr('Código de cliente já cadastrado!<br />Clique para continuar!','error',$destino)</script>";
-                        }
-
-                        var_dump('passou da verificação');
-            
-                        $stmt = $conn->prepare('INSERT INTO tb_clientes VALUES	(:nome_cliente,:end_cliente,
-                        :cep_cliente,:tel_cliente,:cpf_cliente,:tipo_pagamento,:dt_nasc)');
-                        $stmt->bindValue(':nome_cliente', $nomeCliente);
-                        $stmt->bindValue(':end_cliente', $endCliente);
-                        $stmt->bindValue(':cep_cliente', $cepCliente);
-                        $stmt->bindValue(':tel_cliente', $telCliente);
-                        $stmt->bindValue(':cpf_cliente', $cpfCliente);
-                        $stmt->bindValue(':tipo_pagamento', $tpPagamento);
-                        $stmt->bindValue(':dt_nasc', $dtNasc);
-
-                        echo "\nPDOStatement::errorInfo():\n";
-                        $arr = $stmt->errorInfo();
-                        print_r($arr); 
-
-                        //  $sql = "INSERT INTO `tb_clientes` (`nome_cliente`,`end_cliente`,`cep_cliente`,`tel_cliente`,
-                        //  `cpf_cliente`,`tipo_pagamento`,`dt_nasc`)VALUES ('$nomeCliente','$endCliente','$cepCliente','
-                        //  $telCliente','$cpfCliente','$tpPagamento','$dtNasc')";
-            
-                        //  $stmt = $conn->prepare($sql);
-                            
-                        $stmt->execute();
-
-                        var_dump('inseriu');
-                        
-                    }catch (PDOException $e) {
-                        // caso ocorra uma exceção, exibe na tela
-                    
-            
-                        $destino = "function () {window.location='cadastrarCliente.php';}";
-                        echo "<script>'error',$destino)</script>";
-                        die();
-
-                        var_dump('nao inseriu');
-                    }
-                } 
-
-
-
-                // if( isset($ALTERAR)){     
-                //     alterar($id,$valor,$valor);    
-                // }
-
-                // if (isset($DELETAR)) {  
-                //     deletar($id);   
-                // }
-
             ?>
 
             <div class='card-body'>
-                <form action='cadastrarCliente.php' method='POST'>
+                <form action='dadosCliente.php' method='POST'>
+                    <input type="hidden" id="id" name="id" />
+
                     <div class="form-group titulo">
                         <label>Cadastro de Clientes</label>
                     </div>
