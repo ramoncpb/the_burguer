@@ -61,3 +61,13 @@ form{
 form>button{
     margin-top: 5px;
 }
+
+.logo{
+    margin-top: -6px !important;
+    height: 80px !important;
+    width: 80px !important;
+    background: rgb(207, 216, 219);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}

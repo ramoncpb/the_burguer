@@ -8,7 +8,6 @@
             
             // recebe os dados do formulário
     
-            $idCliente = $_POST['id'];
             $nomeCliente = $_POST['nomeCliente'];
             $endCliente = $_POST['endCliente'];
             $cepCliente = $_POST['cepCliente'];

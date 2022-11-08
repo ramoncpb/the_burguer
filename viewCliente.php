@@ -94,7 +94,7 @@
                     // cria o link para o programa alteracao_clientes.php passando o código do time a ser alterado/excluída 
 
                     echo "<a href='alteracao_exclusao_clientes.php?cpf_cliente=" . $row->cpf_cliente . "'>";
-                    echo "<img src='imagens/b_edit.png' border='0'><img src='imagens/b_drop.png' border='0'></a>&nbsp;\n";
+                    echo "<img src='img/b_edit.png' border='0' height='30'  width='30'><img src='img/b_drop.png' border='0' height='30'  width='25'></a>&nbsp;\n";
                     echo "</td>\n";
                     echo "</tr>\n";
 
