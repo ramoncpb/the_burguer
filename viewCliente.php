@@ -26,7 +26,15 @@
                 $count = $result->rowCount();
         ?>
 
+
             <div class='card-body'>
+                <form>
+                    <div class="form-group">
+                        <label class='form-label'><h5>Filtro </h5></label>
+                        <input type="text" class="form-control" name="cepCliente" id="cepCliente" placeholder="Digite um parametro" />
+                    </div>
+                </form>
+
                 <h1> Clientes </h1>
 
         <?php
@@ -34,9 +42,6 @@
             if ($count > 0) {
                 // percorre os resultados via fetch(), caso tenha pelo menos um registro
                 echo "<table>";
-                echo "<tr>\n";
-                echo "<td>\n";
-                echo "<b>Codigo</b>\n";
                 echo "</td>\n";
                 echo "<td>\n";
                 echo "<b>Nome</b>\n";
@@ -64,36 +69,33 @@
 
                 while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                     // exibe os dados na tela, acessando o objeto retornado
-                    echo "<tr>\n";
-                    echo "<td class='td_l'>\n";
-                    echo $row->cod_cliente . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td class='td_l'>\n";
-                    echo $row->nome_cliente . "&nbsp;\n";
+                    echo $row->nomeCliente . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td class='td_l'>\n";
-                    echo $row->end_cliente . "&nbsp;\n";
+                    echo $row->endCliente . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td class='td_l'>\n";
-                    echo $row->cep_cliente . "&nbsp;\n";
+                    echo $row->cepCliente . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td class='td_l'>\n";
-                    echo $row->tel_cliente . "&nbsp;\n";
+                    echo $row->telCliente . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td class='td_l'>\n";
-                    echo $row->cpf_cliente . "&nbsp;\n";
+                    echo $row->cpfCliente . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td class='td_l'>\n";
-                    echo $row->tipo_pagamento . "&nbsp;\n";
+                    echo $row->tpPagamento . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td class='td_l'>\n";
-                    echo $row->dt_nasc . "&nbsp;\n";
+                    echo $row->dtNasc . "&nbsp;\n";
                     echo "</td>\n";
                     echo "<td>\n";
 
                     // cria o link para o programa alteracao_clientes.php passando o código do time a ser alterado/excluída 
 
-                    echo "<a href='alteracao_exclusao_clientes.php?cpf_cliente=" . $row->cpf_cliente . "'>";
+                    echo "<a href='alteracao_exclusao_clientes.php?cpfCliente=" . $row->cpfCliente . "'>";
                     echo "<img src='img/b_edit.png' border='0' height='20'  width='20'><img src='img/b_drop.png' border='0' height='20'  width='15'></a>&nbsp;\n";
                     echo "</td>\n";
                     echo "</tr>\n";

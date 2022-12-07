@@ -12,7 +12,7 @@
         
         <div class='card'>
             <?php
-                include_once './cabecalho.php';
+                include_once 'cabecalho.php';
             ?>
 
             <div class='card-body'>
